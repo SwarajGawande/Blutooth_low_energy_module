@@ -294,12 +294,12 @@ BleRadioEnergyModel::ChangeState (int newState)
       return;
     }
 
-  if (newState != BlePhy::State::OFF)
-    {
-      m_switchToOffEvent.Cancel ();
-      Time durationToOff = GetMaximumTimeInState (newState);
-      m_switchToOffEvent = Simulator::Schedule (durationToOff, &BleRadioEnergyModel::ChangeState, this, BlePhy::State::OFF);
-    }
+//   if (newState != BlePhy::State::OFF)
+//     {
+//       m_switchToOffEvent.Cancel ();
+//       Time durationToOff = GetMaximumTimeInState (newState);
+//       m_switchToOffEvent = Simulator::Schedule (durationToOff, &BleRadioEnergyModel::ChangeState, this, BlePhy::State::OFF);
+//     }
 
   Time duration = Simulator::Now () - m_lastUpdateTime;
   NS_ASSERT (duration.IsPositive ()); // check if duration is valid
